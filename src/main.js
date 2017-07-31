@@ -9,24 +9,20 @@ function aritGeo(userInput){
   //      undefined: if userInput is not an array.
   //      length of 1: if userInput length is 1
 
-    result = ''
-
     if(!Array.isArray(userInput)){
-        result = 'undefined';
-        return result;
+        return 'undefined';
     } 
 
     if(userInput.length === 0){
-        result = 0;
-        return result;
+        return 0;
     }
     
     if(userInput.length == 1){
       return -1;
     }
-    if(arit(userInput)){
+    if(CheckArithmetic(userInput)){
         return 'Arithmetic';
-    }else if(Geo(userInput)){
+    }else if(CheckGeometric(userInput)){
         return 'Geometric';
         
     }else{
@@ -34,19 +30,16 @@ function aritGeo(userInput){
     }
 }
 
-console.log(aritGeo([1]) ===  'undefined');
-
 // Check if array is Arithmetic
-function arit(userArray){
+function CheckArithmetic(userArray){
     const d = userArray[0] - userArray[1];
-    const r = userArray[1] / userArray[0];
     let result = '';
     let i =2;
     
     if(userArray.length === 0){
       result = 0;
     }
-    
+
     for(; i<userArray.length-1; i++){
       
       if(userArray[i] - userArray[i+1] == d){
@@ -60,12 +53,12 @@ function arit(userArray){
     return result;
 }
 
-arit([1,2,3,4,5,6]);
+CheckArithmetic([1,2,3,4,5,6]);
 
 
 
 // Check if array is geometric
-function Geo(userArray){
+function CheckGeometric(userArray){
     const r = userArray[1] / userArray[0];
     let result = '';
     let i =2;
@@ -85,6 +78,6 @@ function Geo(userArray){
   return result;
 }
 
-Geo([ 2, 6, 18, 54]);
+CheckGeometric([ 2, 6, 18, 54]);
 
 module.exports= aritGeo;
