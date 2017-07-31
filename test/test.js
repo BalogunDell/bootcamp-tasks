@@ -1,32 +1,32 @@
 //import needed  modules
 const assert = require('chai').assert;
-const app = require('../src/main.js');
+const aritGeo = require('../src/main.js');
 
 describe('ArithGeo function', function(){
     
     // Test for Arithmetic input
-    describe('Arithmetic' , function(){
-        assert.equal(AritGeo([2,4,6,8,10]), true);
+    it('Arithmetic' , function(){
+        assert.equal(aritGeo([2,4,6,8,10]), 'Arithmetic');
     });
 
     // Test for geomtric input
-     describe('Geometric' , function(){
-        assert.equal(AritGeo([1,3,9,27,81]), true);
+     it('Geometric' , function(){
+        assert.equal(aritGeo([1,3,9,27,81]), 'Geometric');
     });
 
     // Test for neither geomtric nor arithmetic input
     describe('-1' , function(){
-        assert.equal(AritGeo([1,24,57,3,0,43]), true);
+        assert.equal(aritGeo([1,24,57,3,0,43]), '-1');
     });
     
     // Test for empty input
      describe('0' , function(){
-        assert.equal(AritGeo([]), true);
+        assert.equal(aritGeo([]), true);
     });
 
     // Test for no input
      describe('You need to provide an input - an array' , function(){
-        assert.equal(AritGeo(), true);
+        assert.equal(aritGeo(), true);
     });
 
 });
