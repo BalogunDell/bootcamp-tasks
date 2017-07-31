@@ -1,24 +1,34 @@
 function aritGeo(userInput){
+
+  //@param = array
+  //output:
+  //       'Arithmetic':  if userArray is Arithmetic progression
+  //      'Geometric':  if userArray is Geometric progression
+   //     0: if userInput is empty.
+   //     -1 if userInput is neither Arithmetic nor Geometric but not empty
+
     result = ''
 
     if(!Array.isArray(userInput)){
-        result = 'This function expects an array';
+        result = 'undefined';
+        return result;
     } 
-    if(userInput ===[]){
-        result = -1;
+    if(userInput.length === 0){
+        result = 0;
+        return result;
     }
     
     if(arit(userInput)){
-        result = 'Arithmetic';
+        return 'Arithmetic';
     }else if(Geo(userInput)){
-        result = 'Geometric';
+        return 'Geometric';
+        
     }else{
-        result = -1;
+        return -1;
     }
-
-    return result;
 }
 
+console.log(aritGeo() ===  'undefined');
 
 // Check if array is Arithmetic
 function arit(userArray){
@@ -70,3 +80,5 @@ function Geo(userArray){
 }
 
 Geo([ 2, 6, 18, 54]);
+
+module.exports= aritGeo;

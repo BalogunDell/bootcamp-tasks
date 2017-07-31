@@ -1,6 +1,6 @@
 //import needed  modules
 const assert = require('chai').assert;
-const aritGeo = require('../src/main.js');
+const aritGeo = require('../src/main');
 
 describe('ArithGeo function', function(){
     
@@ -15,18 +15,18 @@ describe('ArithGeo function', function(){
     });
 
     // Test for neither geomtric nor arithmetic input
-    describe('-1' , function(){
-        assert.equal(aritGeo([1,24,57,3,0,43]), '-1');
+    it('neither geomtric nor arithmetic' , function(){
+        assert.equal(aritGeo([1,24,57,3,0,43]), -1);
     });
     
     // Test for empty input
-     describe('0' , function(){
-        assert.equal(aritGeo([]), true);
+     it('empty input' , function(){
+        assert.equal(aritGeo([]), 0);
     });
 
     // Test for no input
-     describe('You need to provide an input - an array' , function(){
-        assert.equal(aritGeo(), true);
+     it('should return undefined when no argument is passed' , function(){
+        assert.equal(aritGeo(), 'undefined');
     });
 
 });
