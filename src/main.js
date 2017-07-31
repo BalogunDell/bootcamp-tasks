@@ -4,8 +4,10 @@ function aritGeo(userInput){
   //output:
   //       'Arithmetic':  if userArray is Arithmetic progression
   //      'Geometric':  if userArray is Geometric progression
-   //     0: if userInput is empty.
-   //     -1 if userInput is neither Arithmetic nor Geometric but not empty
+  //      0: if userInput is empty.
+  //      -1 if userInput is neither Arithmetic nor Geometric but not empty
+  //      undefined: if userInput is not an array.
+  //      length of 1: if userInput length is 1
 
     result = ''
 
@@ -13,11 +15,15 @@ function aritGeo(userInput){
         result = 'undefined';
         return result;
     } 
+
     if(userInput.length === 0){
         result = 0;
         return result;
     }
     
+    if(userInput.length == 1){
+      return -1;
+    }
     if(arit(userInput)){
         return 'Arithmetic';
     }else if(Geo(userInput)){
@@ -28,7 +34,7 @@ function aritGeo(userInput){
     }
 }
 
-console.log(aritGeo() ===  'undefined');
+console.log(aritGeo([1]) ===  'undefined');
 
 // Check if array is Arithmetic
 function arit(userArray){
