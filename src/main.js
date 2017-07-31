@@ -9,9 +9,13 @@ function aritGeo(userInput){
   //      undefined: if userInput is not an array.
   //      length of 1: if userInput length is 1
 
-    if(!Array.isArray(userInput)){
-        return 'undefined';
+    if(!Array.isArray(userInput) || !userInput){
+        return 'Invalid argument';
     } 
+
+    if(!userInput.every(checkArrayElements)){
+      return 'Array contains invalid characters';
+    }
 
     if(userInput.length === 0){
         return 0;
@@ -30,6 +34,7 @@ function aritGeo(userInput){
     }
 }
 
+  aritGeo([1.5, 3.5, 8.1]);
 // Check if array is Arithmetic
 function CheckArithmetic(userArray){
     const d = userArray[0] - userArray[1];
@@ -53,10 +58,6 @@ function CheckArithmetic(userArray){
     return result;
 }
 
-CheckArithmetic([1,2,3,4,5,6]);
-
-
-
 // Check if array is geometric
 function CheckGeometric(userArray){
     const r = userArray[1] / userArray[0];
@@ -78,6 +79,8 @@ function CheckGeometric(userArray){
   return result;
 }
 
-CheckGeometric([ 2, 6, 18, 54]);
+function checkArrayElements(arr){
+  return typeof arr === 'number';
+}
 
 module.exports= aritGeo;
