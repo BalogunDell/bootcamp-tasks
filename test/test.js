@@ -25,6 +25,12 @@ describe('ArithGeo function', function(){
     });
 
     // Test for no input
+     it('should return -1 for single element array' , function(){
+        assert.equal(aritGeo([1]), -1);
+    });
+
+
+    // Test for no input
      it('should return undefined when no argument is passed' , function(){
         assert.equal(aritGeo(), 'undefined');
     });
